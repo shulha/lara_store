@@ -26,13 +26,14 @@ Route::post('additem','ItemsController@save');
 Route::post('get_parameters','ParametersController@get');
 Route::post('save_parameters','ParametersController@save');
 
-Route::get('show/{id}',function($id)
-{
-    $items=App\Items::find($id); // получаем все, что касается товара (название, цена....)
-    $parameters=App\Items::parameters($id);//получаем все параметры
-    $images=explode(';',$parameters[0]->preview); //ссылки на картинки передаем отдельным массивом
-    return view('show',['items'=>$items,'parameters'=>$parameters,'images'=>$images]);
-});
+Route::get('show/{id}', 'ItemsController@show');
+
+Route::get('edit/{id}','ItemsController@edit');
+
+Route::post('del_image','ItemsController@del_image');
+
+Route::post('edit/{id}','ItemsController@update');
+
 
 
 //Route::get('/master', function () {
