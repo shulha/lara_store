@@ -62,3 +62,26 @@ $(document).on('click','.add_images',function(){
     var field = $('input[name="preview[]"]:first').clone(); // клонируем поле preview
     $(this).after(field); //вставляем поле после кнопки
 });
+
+$(document).on('click','.del_image',function(){
+    div=$(this).parent(); //div, который содержить и картинку и кнопку
+    src=$(this).prev().attr('src'); //ссылка на кратинку
+    item_id=$("#item_id").val(); //id товара
+
+    $.ajax({
+        url: '/del_image',
+        method: 'POST',
+        data: {src:src,item_id:item_id},
+        headers: {
+            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(res)
+        {
+            div.remove(); //если все прошло без ошибок то удаляем div
+        },
+        error: function(msg)
+        {
+            console.log(msg);// если ошибка, то можно посмотреть в консоле
+        }
+    });
+});

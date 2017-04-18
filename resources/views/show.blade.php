@@ -1,20 +1,10 @@
-<html>
-<head>
-    <title>Товар {{$items->title}} </title>
-    <script src="{{asset("js/jquery-2.1.4.min.js")}}"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
-    <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}"/>
-    <link rel="stylesheet" href="{{asset("css/bootstrap-theme.min.css")}}"/>
-    <script src="{{asset("js/functions.js")}}"></script>
+@extends('layouts.main')
 
-</head>
-<body>
-<nav class="navbar navbar-inverse">
+@section('content')
+    <h1>Товар {{$items->title}}</h1>
+    <hr>
+
     <div class="container">
-        Шапка
-    </div>
-</nav>
-<div class="container">
     <div class="row">
         <div class="col-md-12">
             @foreach($images as $image)
@@ -49,5 +39,4 @@
     <hr>
     <button class="btn btn-primary btn-lg">Купить</button>
 </div>
-</body>
-</html>
+@stop
