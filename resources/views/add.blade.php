@@ -34,4 +34,4 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <button class="btn btn-default btn-lg save_item" type="submit">Сохранить товар</button>
 </form>
-@endsection('content')
+@endsection

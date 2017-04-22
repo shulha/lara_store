@@ -153,4 +153,10 @@ class ItemsController extends Controller
         flash()->success('Товар сохранен');
         return back();
     }
+
+    public function showall()
+    {
+        $items=Items::all();
+        return view('index',['items'=>$items]);
+    }
 }

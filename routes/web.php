@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
 
@@ -34,14 +34,13 @@ Route::post('del_image','ItemsController@del_image');
 
 Route::post('edit/{id}','ItemsController@update');
 
+Route::get('/','ItemsController@showall');
 
+Route::get('/basket','BasketController@show');
 
-//Route::get('/master', function () {
-//    return view('layouts.master');
-//});
-//Route::get('/master/new', function () {
-//    return view('new');
-//});
-//Route::get('/master/products', function () {
-//    return view('products');
-//});
+Route::post('/checkout','BasketController@checkout');
+
+Route::get('/orders','OrderController@orders');
+
+Route::get('/orders/{id}','OrderController@show');
+
